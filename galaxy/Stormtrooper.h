@@ -61,15 +61,10 @@ public:
     {
         return type;
     }
-    void print();
-    bool operator == (const Stormtrooper& other) const
-    {
-        return strcmp(id, other.id)
-            && strcmp(type, other.type)
-            && rank == other.rank
-            && planet == other.planet;
-    }
+
+    bool operator == (const Stormtrooper& other) const;
     Stormtrooper& operator=(const Stormtrooper& other);
+    friend std::ostream& operator<<(std::ostream& output, const Stormtrooper& stormtrooper);
     ~Stormtrooper();
 private:
     char* id;
@@ -78,53 +73,4 @@ private:
     char* type;
 };
 
-Stormtrooper::Stormtrooper()
-{
-    id = NULL;
-    rank = Cadet;
-    planet.DeletePlanet();
-    type = NULL;
-}
-Stormtrooper::Stormtrooper(char* _id, StormtrooperRank _rank, Planet _planet, char* _type)
-{
-    this->id = _id;
-    this->rank = _rank;
-    this->planet = _planet;
-    this->type = _type;
-}
-Stormtrooper::Stormtrooper(const Stormtrooper& other)
-{
-    this->id = new char[strlen(other.id) + 1];
-    this->type = new char[strlen(other.type) + 1];
-    strcpy_s(this->id, strlen(other.id) + 1, other.id);
-    this->rank = other.rank;
-    this->planet = other.planet;
-    strcpy_s(this->type, strlen(other.type) + 1, other.type);
-}
-Stormtrooper& Stormtrooper :: operator=(const Stormtrooper& other)
-{
-    if (this != &other)
-    {
-        delete[] id;
-        delete[] type;
-        this->id = new char[strlen(other.id) + 1];
-        this->type = new char[strlen(other.type) + 1];
-        strcpy_s(this->id, strlen(other.id) + 1, other.id);
-        strcpy_s(this->type, strlen(other.type) + 1, other.type);
-        this->rank = other.rank;
-        this->planet = other.planet;
-    }
-    return *this;
-}
-Stormtrooper::~Stormtrooper()
-{
-    delete[] id;
-    delete[] type;
-    planet.~Planet();
-    rank = Cadet;
-}
-void Stormtrooper::print()
-{
-    std::cout << id << " " << rank << " " << planet.get_name() <<
-        " " << type << " " << std::endl;
-}
+
