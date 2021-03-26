@@ -2,6 +2,18 @@
 #include <string.h>
 #include "Planet.h"
 
+
+void ToLower(char* string)
+{
+    for (size_t i = 0; string[i] != NULL; i++)
+    {
+        if (string[i] >= 'A' && string[i] <= 'Z')
+        {
+            string[i] += 32;
+        }
+    }
+}
+
 std::ostream& operator<<(std::ostream& output, const Planet& planet)
 {
     output << planet.name << std::endl << planet.planetSystem << std::endl << planet.republic << std::endl;
@@ -61,10 +73,94 @@ std::ostream& operator<<(std::ostream& output, const Planet& planet)
     output << std::endl;
     return output;
 }
+
+std::istream& operator>>(std::istream& input, Planet& planet)
+{
+    char buffer[50];
+    input.getline(buffer,50);
+    planet.set_name(buffer);
+    input.getline(buffer, 50);
+    planet.set_planetSystem(buffer);
+    input.getline(buffer, 50);
+    planet.set_republic(buffer);
+    input.getline(buffer, 50);
+    ToLower(buffer);
+    if (!strcmp(buffer, "chthonian planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Chthonian_Planet);
+    }
+    else if (!strcmp(buffer, "carbon planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Carbon_Planet);
+    }
+    else if (!strcmp(buffer, "coreless planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Coreless_Planet);
+    }
+    else if (!strcmp(buffer, "desert planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Desert_Planet);
+    }
+    else if (!strcmp(buffer, "gas dwarf"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Gas_Dwarf);
+    }
+    else if (!strcmp(buffer, "gas giant"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Gas_Giant);
+    }
+    else if (!strcmp(buffer, "helium planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Helium_Planet);
+    }
+    else if (!strcmp(buffer, "ice giant"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Ice_Giant);
+    }
+    else if (!strcmp(buffer, "ice planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Ice_Planet);
+    }
+    else if (!strcmp(buffer, "iron planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Iron_Planet);
+    }
+    else if (!strcmp(buffer, "lava planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Lava_Planet);
+    }
+    else if (!strcmp(buffer, "ocean planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Ocean_Planet);
+    }
+    else if (!strcmp(buffer, "protoplanet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Protoplanet);
+    }
+    else if (!strcmp(buffer, "puffy planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Puffy_Planet);
+    }
+    else if (!strcmp(buffer, "silicate planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Silicate_Planet);
+    }
+    else if (!strcmp(buffer, "terrestrial planet"))
+    {
+        planet.set_type(Planet::typeOfPlanet::Terrestrial_Planet);
+    }
+    else
+    {
+        planet.set_type(Planet::typeOfPlanet::Chthonian_Planet);
+    }
+    return input;
+}
+
 Planet& Planet :: operator=(const Planet& other)
 {
     if (this != &other)
     {
+        
         this->name = new char[strlen(other.name) + 1];
         this->planetSystem = new char[strlen(other.planetSystem) + 1];
         this->republic = new char[strlen(other.republic) + 1];

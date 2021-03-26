@@ -4,10 +4,10 @@
 #include "Planet.h"
 
 
+
+
 class Jedi
 {
-
-
 public:
     enum JediRank
     {
@@ -25,7 +25,7 @@ public:
     };
     Jedi();
     Jedi(const Jedi& other);
-    Jedi(char*, Jedi::JediRank, double, Planet, char*, char*);
+    Jedi(const char*, const Jedi::JediRank, const double, const Planet, const char*, const char*);
     void set_name(const char* Name)
     {
         name = new char[strlen(Name) + 1];
@@ -80,6 +80,7 @@ public:
     bool operator == (const Jedi& other) const;
     Jedi& operator=(const Jedi& other);
     friend std::ostream& operator<<(std::ostream& output, const Jedi& jedi);
+    friend std::istream& operator>>(std::istream& input, Jedi& jedi);
     ~Jedi();
 private:
     char* name;

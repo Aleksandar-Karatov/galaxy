@@ -1,7 +1,7 @@
 #pragma once
-#pragma once
 #include <iostream>
 #include <string.h>
+
 class Planet {
 
 public:
@@ -68,7 +68,7 @@ public:
     bool operator == (const Planet& other) const;
     Planet& operator=(const Planet& other);
     friend std::ostream& operator<<(std::ostream& output, const Planet& planet);
-
+    friend std::istream& operator>>(std::istream& input, Planet& planet);
     ~Planet();
 private:
     char* name;
@@ -77,4 +77,10 @@ private:
     typeOfPlanet typeofplanet;
 
 };
+
+template<class T>
+void Print(T templ)
+{
+    std::cout << templ;
+}
 

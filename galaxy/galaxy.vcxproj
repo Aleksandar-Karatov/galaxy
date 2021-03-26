@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BattleShip.cpp" />
     <ClCompile Include="galaxy.cpp" />
     <ClCompile Include="Jedi.cpp" />
     <ClCompile Include="Planet.cpp" />
@@ -148,6 +149,7 @@
     <Object Include="Debug\Jedi.obj" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleShip.h" />
     <ClInclude Include="Jedi.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Stormtrooper.h" />

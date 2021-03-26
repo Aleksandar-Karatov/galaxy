@@ -8,27 +8,37 @@
 #include "Stormtrooper.h"
 
 
+
 int main()
-{
-   Planet yavin = Planet();
-    yavin.set_name("yavin");
+{   
+    Stormtrooper testTrooper;
+    std::cin >> testTrooper;
+    std::cout << testTrooper;
+    //Jedi testJedi;
+    //std::cin >> testJedi;
+    //std::cout << testJedi;
+    
+    //Planet yavin = Planet();
+    //std::cin >> yavin;
+    //Print(yavin);
+    /*yavin.set_name("yavin");
     yavin.set_planetSystem("pancharevo");
     yavin.set_republic("republic");
     yavin.set_type(Planet::Terrestrial_Planet);
-    std::cout<<yavin;
+    Print(yavin);
     Planet utapau;
     utapau.set_name("utapau");
     utapau.set_planetSystem("pernik");
     utapau.set_republic("separatists");
     utapau.set_type(Planet::Chthonian_Planet);
-    std::cout<<utapau;
+    Print(utapau);
     utapau = yavin;
-    std::cout<<utapau;
-   
+
+    Print(utapau);
     Planet manja = Planet("asd","asd","asd",Planet::Gas_Dwarf);
     Planet test = Planet(manja);
-    std::cout<<test;
-    std::cout<<manja;
+    Print(test);
+    Print(manja);
     Jedi yoda = Jedi();
     yoda.set_name("Yoda");
     yoda.set_midi_chlorians(900);
@@ -36,14 +46,14 @@ int main()
     yoda.set_rank(Jedi::Grand_master);
     yoda.set_species("yodalmao");
     yoda.set_planet(yavin);
-    std::cout<<yoda;
+    Print(yoda);
     
     Stormtrooper fin = Stormtrooper();
     fin.set_id("FN123451");
     fin.set_planet(Planet(utapau.get_name(),utapau.get_planetSystem(),utapau.get_Republic(),utapau.get_type()));
     fin.set_rank(Stormtrooper::Sergeant);
     fin.set_type("Death trooper");
-    
+    Print(fin);
     Stormtrooper bau = fin;
     Jedi lol = yoda;
 
@@ -58,6 +68,6 @@ int main()
     if (lol==yoda)
     {
         std::cout << "lol";
-    }
+    }*/
 }
 

@@ -27,6 +27,9 @@
     <ClCompile Include="Stormtrooper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BattleShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Object Include="Debug\Jedi.obj" />
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stormtrooper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

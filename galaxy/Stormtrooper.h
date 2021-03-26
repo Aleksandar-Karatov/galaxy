@@ -65,6 +65,8 @@ public:
     bool operator == (const Stormtrooper& other) const;
     Stormtrooper& operator=(const Stormtrooper& other);
     friend std::ostream& operator<<(std::ostream& output, const Stormtrooper& stormtrooper);
+    friend std::istream& operator>>(std::istream& input, Stormtrooper& stormtrooper);
+
     ~Stormtrooper();
 private:
     char* id;
