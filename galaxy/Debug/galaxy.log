@@ -1,2 +1,4 @@
-﻿  BattleShip.cpp
-  galaxy.vcxproj -> D:\OOP FMI\Practicum\galaxy\Debug\galaxy.exe
+﻿  galaxy.cpp
+Debug\Jedi.obj : warning LNK4042: object specified more than once; extras ignored
+galaxy.obj : error LNK2019: unresolved external symbol "public: __thiscall BattleShip<class Jedi>::BattleShip<class Jedi>(void)" (??0?$BattleShip@VJedi@@@@QAE@XZ) referenced in function _main
+D:\OOP FMI\Practicum\galaxy\Debug\galaxy.exe : fatal error LNK1120: 1 unresolved externals

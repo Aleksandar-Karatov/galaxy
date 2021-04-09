@@ -3,21 +3,18 @@
 #include <string.h>
 #include "Jedi.h"
 #include "Stormtrooper.h"
-template <typename Pilot>
+template <class T>
 class BattleShip
 {
 public:
 	BattleShip();
-	BattleShip(const BattleShip& other);
-	BattleShip(const double Speed, const Jedi Pilot, const int Cannons,
+	BattleShip(const BattleShip<T>& other);
+	BattleShip(const double Speed, const T Pilot, const int Cannons,
 		const bool Can_Hyperdrive, const double Size);
-	BattleShip(const double Speed, const Stormtrooper Pilot, const int Cannons,
-		const bool Can_Hyperdrive, const double Size);
-	void set_Pilot(const Jedi Pilot)
-	{
-		pilot = Pilot;
-	}
-	void set_Pilot(const Stormtrooper Pilot)
+	//template <typename Stormtrooper>
+	//BattleShip(const double Speed, const Stormtrooper Pilot, const int Cannons,
+		//const bool Can_Hyperdrive, const double Size);
+	void set_Pilot(const T Pilot)
 	{
 		pilot = Pilot;
 	}
@@ -37,10 +34,11 @@ public:
 	{
 		size = Size;
 	}
-	Pilot get_Pilot()
+	T get_Pilot()
 	{
 		return pilot;
 	}
+	
 	double get_Speed()
 	{
 		return speed;
@@ -57,14 +55,16 @@ public:
 	{
 		return size;
 	}
-	bool operator==(const BattleShip& other)const;
-	BattleShip& operator=(const BattleShip& other);
-	friend std::ostream& operator<<(std::ostream& output, const BattleShip& battleShip);
-	friend std::istream& operator>>(std::istream& input, BattleShip& battleShip);
-	~BattleShip();
+	bool operator==(const BattleShip<T>& other)const;
+	BattleShip& operator=(const BattleShip<T>& other);
+
+	friend std::ostream& operator<<(std::ostream& output, const BattleShip<T>& battleShip);
+
+	friend std::istream& operator>>(std::istream& input, BattleShip<T>& battleShip);
+
 
 private:
-	Pilot pilot;
+	T pilot;
 	double speed;
 	int cannons;
 	bool can_Hyperdrive;
